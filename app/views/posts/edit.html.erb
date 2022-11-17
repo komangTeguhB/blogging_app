@@ -1,0 +1,17 @@
+<h1>Edit post<h1>
+
+<%= form_for @post do |form| %>
+  <%= form.object.errors.full_messages %>
+
+  <%= form.label :title %>
+  <%= form.text_field :title %>
+
+  <br>
+
+  <%= form.label :content %>
+  <%= form.text_field :content %>
+
+  <br>
+
+  <%= form.submit "Create Post" %>
+<% end %>

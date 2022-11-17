@@ -1,0 +1,26 @@
+<%= turbo_stream.replace :new_comment do %>
+  <%= turbo_frame_tag :new_comment do %>
+    <%= link_to "New Comment", new_post_comment_path(@post) %>
+  <%- end %>
+<%- end %>
+
+<%= turbo_stream.append :show_comment do %>
+  <%= turbo_frame_tag :show_comment do %>
+    <p style="color: green"><%= notice %></p>
+
+    <% @comments.each do |data| %>
+      <div>
+        <strong><%= data.name %></strong>
+        <p><%= data.comment %></p>
+
+        <div>
+          <%= link_to "Edit this comment", edit_comment_path(data) %> |
+          <%= link_to "Back to comments", comments_path %>
+
+          <%= button_to "Destroy this comment", data, method: :delete %>
+        </div>
+      </div>
+    <% end %>
+
+  <% end %>
+<% end %>

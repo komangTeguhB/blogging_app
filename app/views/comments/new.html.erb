@@ -1,0 +1,33 @@
+<%= turbo_frame_tag :new_comment do %>
+<h1>New comment</h1>
+
+
+<%= form_for @comment do |form| %>
+    <div>
+    <%= form.label :name %>:
+    </div>
+    <div>
+    <%= form.text_field :name %>
+    </div>
+
+    <div>
+    <%= form.label :comment %>:
+    </div>
+    <div>
+    <%= form.text_area :comment %>
+    </div>
+
+    <div>
+      Post Id:
+    </div>
+    <div>
+    <%= form.text_field :post_id, value: params[:post_id] %>
+    </div>
+    <br>
+    <br>
+
+    <%= form.submit "Create Comment" %>
+  <% end %>
+
+<br>
+<% end %>

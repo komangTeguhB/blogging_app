@@ -1,0 +1,16 @@
+<h1>Posts#index</h1>
+
+<%= turbo_frame_tag :posts do %>
+
+  <% @posts.each do |post| %>
+    <%= link_to post, data: { turbo_frame: :_top } do %>
+      <strong><%= post.title %></strong>
+    <% end %>
+    <p><%= post.content %></p>
+  <% end %>
+
+<% end %>
+
+<%= turbo_frame_tag :new_post do %>
+  <%= link_to "New Post", new_post_path %>
+<% end %>
